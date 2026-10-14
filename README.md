@@ -1,1 +1,502 @@
-# website-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Kumari Sen | Portfolio</title>
+    <!-- Google Fonts & FontAwesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #38bdf8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            padding-top: 80px;
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--text-color);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+        }
+
+        /* Generic Section Styling */
+        section {
+            padding: 100px 8%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* About & Education */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p, .card ul {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style-position: inside;
+            margin-top: 10px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .skill-box i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .skill-box:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* Extracurricular Section */
+        .extra-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 5px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+            nav ul {
+                display: none; /* Can add a mobile hamburger menu here later */
+            }
+            .hero {
+                padding: 0 5%;
+                padding-top: 100px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            section {
+                padding: 60px 5%;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <a href="#" class="logo">Uma<span>.dev</span></a>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#extracurricular">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h3>Hello, I'm</h3>
+            <h1>Uma Kumari Sen</h1>
+            <p>Aspiring <strong>Software Engineer</strong> currently pursuing my 1st Year in B.Sc. Computer Science at Bishop Heber College. Passionate about problem-solving, building scalable code, and continuous learning.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn">Get in Touch</a>
+                <!-- Resume option placeholder for future use -->
+                <a href="#contact" class="btn btn-outline" onclick="alert('Resume will be available soon!')">Resume (Coming Soon)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Education Section -->
+    <section id="about">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                <p><strong>B.Sc. Computer Science (1st Year)</strong></p>
+                <p>Bishop Heber College</p>
+                <br>
+                <p><strong>Schooling</strong></p>
+                <p>Makunda Christian Senior Secondary School, Assam</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-bullseye"></i> Career Goal</h3>
+                <p>My dream job is to become a top-tier <strong>Software Engineer</strong>, contributing to impactful tech solutions, mastering advanced algorithms, and developing robust applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <i class="fa-solid fa-code"></i>
+                <span>C Language</span>
+            </div>
+            <div class="skill-box">
+                <i class="fa-brands fa-python"></i>
+                <span>Python</span>
+            </div>
+            <div class="skill-box">
+                <i class="fa-solid fa-sitemap"></i>
+                <span>Data Structures</span>
+            </div>
+            <div class="skill-box">
+                <i class="fa-solid fa-people-group"></i>
+                <span>Teamwork</span>
+            </div>
+            <div class="skill-box">
+                <i class="fa-solid fa-comments"></i>
+                <span>Communication</span>
+            </div>
+            <div class="skill-box">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span>Willingness to Learn</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div>
+                    <h3>Hashing in DSA</h3>
+                    <p>Explored and implemented core hashing concepts and collision handling techniques in Data Structures and Algorithms.</p>
+                </div>
+                <span class="extra-badge" style="width: fit-content;">DSA / C</span>
+            </div>
+            <div class="project-card">
+                <div>
+                    <h3>Jacobians in Robotics</h3>
+                    <p>Mathematical and computational modeling of Jacobians applied to robotic kinematic movements.</p>
+                </div>
+                <span class="extra-badge" style="width: fit-content;">Robotics / Math</span>
+            </div>
+            <div class="project-card">
+                <div>
+                    <h3>Vehicle Management System</h3>
+                    <p>A comprehensive system developed in C to efficiently track, manage, and handle vehicle service operations.</p>
+                </div>
+                <span class="extra-badge" style="width: fit-content;">C Programming</span>
+            </div>
+            <div class="project-card">
+                <div>
+                    <h3>Personal Portfolio</h3>
+                    <p>A responsive, modern personal portfolio website built to showcase my educational background, projects, and skills.</p>
+                </div>
+                <span class="extra-badge" style="width: fit-content;">HTML / CSS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extracurricular Section -->
+    <section id="extracurricular">
+        <h2 class="section-title">Extracurricular <span>Activities</span></h2>
+        <div class="card" style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <p style="margin-bottom: 20px; color: var(--text-secondary);">Beyond academics, I actively participate in sports, leadership, and community service:</p>
+            <div>
+                <span class="extra-badge"><i class="fa-solid fa-medal"></i> NCC Candidate</span>
+                <span class="extra-badge"><i class="fa-solid fa-futbol"></i> Kabaddi</span>
+                <span class="extra-badge"><i class="fa-solid fa-baseball"></i> Badminton</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <div class="contact-content">
+            <p>I am always open to discussing new projects, opportunities, or collaborations. Feel free to reach out!</p>
+            <a href="mailto:umakumarisen705@gmail.com" class="btn"><i class="fa-solid fa-envelope"></i> umakumarisen705@gmail.com</a>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/uma-kumari-sen-953196424" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:umakumarisen705@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Uma Kumari Sen. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
